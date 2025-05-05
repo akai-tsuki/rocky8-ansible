@@ -1,0 +1,11 @@
+
+version: '3'
+
+services:
+  rocky8:
+    build: .
+    container_name: rocky8-ansible
+    stdin_open: true
+    tty: true
+    dns:
+      - 8.8.8.8
