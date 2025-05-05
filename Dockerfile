@@ -16,6 +16,11 @@ RUN dnf update -y && \
 # pip をアップグレード
 RUN python3.8 -m pip install --upgrade pip
 
+# ansible用パッケージをオフラインインストール用に保存
+RUN mkdir /root/ansible-packages && \
+    cd /root/ansible-packages && \
+    python3.8 -m pip download ansible==2.9.27 ansible-lint==5.4.0
+
 # ansible 2.9.27 と ansible-lint 5.4.0 をインストール
 RUN python3.8 -m pip install ansible==2.9.27 ansible-lint==5.4.0
 
